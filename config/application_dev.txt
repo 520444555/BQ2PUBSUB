@@ -1,0 +1,22 @@
+--no_use_public_ips
+--service_account_email f24-temporary-account@hsbc-10534429-sasefm-dev.iam.gserviceaccount.com
+--job_name bq-pubsub-reference-api-cust-pers-non-cust-pers
+--machine_type n1-standard-2
+--staging_location gs://hsbc-10534429-sasefm-dev-dataflowtemplate-bucket/bq-pubsub-reference-api-cust-pers-non-cust-pers/staging/
+--project hsbc-10534429-sasefm-dev
+--region europe-west2
+--subnet regions/europe-west2/subnetworks/dataflow-europe-west2
+--runner DataFlowRunner
+--temp_location gs://hsbc-10534429-sasefm-dev-dataflowtemplate-bucket/bq-pubsub-reference-api-cust-pers-non-cust-pers/temp/
+--max_num_workers 2
+--autoscaling_algorithm THROUGHPUT_BASED
+--disk_size_gb 50
+--dataflow_kms_key projects/hsbc-6320774-kms-dev/locations/europe-west2/keyRings/hsbc-10534429-sasefm-dev/cryptoKeys/dataflow-10534429-sasefm-dev
+--streaming
+--setup_file ./src/main/setup.py
+--save_main_session
+--topic_name projects/hsbc-11616597-feedzaieuqa-dev/topics/wpb-gb-fraud-customers-change-personal
+--bq_kms_key projects/hsbc-6320774-kms-dev/locations/global/keyRings/hsbc-10534429-sasefm-dev/cryptoKeys/privateBigQuery
+--env dev
+--template_location gs://hsbc-10534429-sasefm-dev-dataflowtemplate-bucket/template/bq-pubsub-reference-api-cust-pers-non-cust-pers
+--save_main_session true
